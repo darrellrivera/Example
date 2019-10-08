@@ -1,0 +1,11 @@
+name: Bump build number on merge
+on: push
+
+jobs:
+  build:
+    name: Bump build numbers
+    runs-on: macOS-10.14
+    steps:
+      - name: bump ios build
+        run: cd ios; xcrun agvtool next-version -all; cd ..;
+      - name: bump android build
